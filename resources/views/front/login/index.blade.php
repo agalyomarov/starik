@@ -22,7 +22,7 @@
             </h3>
         </div>
         <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="text" class="form-control" placeholder="Email или Телефон">
         </div>
         <div class="form-group mb-0">
             <input id="password" type="password" class="form-control" placeholder="Пароль">
@@ -36,18 +36,18 @@
             <a href="{{ route('register.index') }}" class="btn btn-dart">Зарегистрироваться</a>
         </div>
         <div class="btns__soc">
-            <button class="btn btn-primary mb-2">
+            {{-- <button class="btn btn-primary">
                 <img src="images/facebook.svg" height="25" alt="facebook" class="mr-2">
                 Sign in with Facebook
-            </button>
-            <button class="btn btn-light mb-2">
-                <img src="images/google.svg" height="25" alt="google" class="mr-2">
-                Sign in with Google
-            </button>
+            </button> --}}
             <button class="btn btn-black">
+                <img src="images/google.svg" height="25" alt="google" class="mr-2">
+                Войти с помощю Google
+            </button>
+            {{-- <button class="btn btn-black">
                 <img src="images/apple.svg" height="25" alt="apple" class="mr-2">
                 Sign in with Apple
-            </button>
+            </button> --}}
         </div>
     </form>
     <script src="/js/script.js"></script>
