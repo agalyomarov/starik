@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('patronymic');
             $table->string('birthday');
             $table->string('soc_link');
-            $table->string('adress');
-            $table->string('about');
+            $table->string('adress')->nullable();
+            $table->string('about')->nullable();
             $table->string('password');
             $table->timestamp('created_at');
         });

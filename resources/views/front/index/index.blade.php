@@ -14,49 +14,7 @@
 
 <body>
     <div class="menu-wrapper d-none"></div>
-    <div id="menu" class="menu-block d-none">
-        <div class="menu-content">
-            <a href="#" id="menu-close" class="menu-close">
-                <img src="images/close-white.svg" height="30" alt="close">
-            </a>
-            <ol class="menu pt-lg-5">
-                <li>
-                    <a href="/">Главная</a>
-                </li>
-                <li>
-                    <a href="/buy-credit.html">Пополнить ходы. Касса</a>
-                </li>
-                <li>
-                    <a href="/hot-price.html">Hot Price (Сканди)</a>
-                </li>
-                <li>
-                    <a href="/top-price.html">Top Price (Классик)</a>
-                </li>
-                <li>
-                    <a href="/category-page.html">Категория</a>
-                </li>
-                <li>
-                    <a href="/bin.html">Корзина</a>
-                </li>
-                <li>
-                    <a href="/profile.html">Личные данные</a>
-                </li>
-                <li>
-                    <a href="/buy-credit.html">Мои ходы</a>
-                </li>
-                <li>
-                    <a href="/archive.html">Архив лотов</a>
-                </li>
-                <li>
-                    <a href="/winners.html">Победители</a>
-                </li>
-                <li>
-                    <a href="/company.html">О нас</a>
-                </li>
-
-            </ol>
-        </div>
-    </div>
+    @include('front.includes.menu')
     <div class="container">
         <header class="header">
             <nav class="navbar navbar-light">
@@ -136,14 +94,15 @@
                         </svg>
                     </div>
                 </a>
-                <div class="action-btns">
-                    <div class="d-flex w-100 justify-content-end">
-                        <a href="login" class="btn btn-white btn-login">
-                            <span class="icon__login"></span>
-                        </a>
-
+                @guest
+                    <div class="action-btns">
+                        <div class="d-flex w-100 justify-content-end">
+                            <a href="login" class="btn btn-white btn-login">
+                                <span class="icon__login"></span>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                @endguest
             </nav>
         </header>
         <main>

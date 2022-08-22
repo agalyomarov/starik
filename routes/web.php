@@ -7,7 +7,12 @@ use App\Http\Controllers\SmsVerifyController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
-Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+
+Route::controller(LoginController::class)->group(function () {
+   Route::get('/login', 'index')->name('login.index');
+   Route::post('/login', 'store')->name('login.store');
+});
+
 
 Route::controller(RegisterController::class)->group(function () {
    Route::get('/register', 'index')->name('register.index');

@@ -34,7 +34,7 @@ class RegisterRequest extends FormRequest
             'adress' => [],
             'about' => [],
             'password' => ['required', 'confirmed', 'min:8'],
-            'code' => ['required']
+            'code' => ['required', 'exists:sms_verifies,code']
         ];
     }
 }

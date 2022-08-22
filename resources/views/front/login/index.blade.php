@@ -14,7 +14,8 @@
     <a href="/" class="btn btn-close">
         <img src="images/close.svg" alt="close">
     </a>
-    <form class="form-signin">
+    <form class="form-signin" method="post" action="{{ route('login.store') }}">
+        @csrf
         <div class="d-flex section__top">
             <h3 class="section__title">
                 <img class="mr-2" src="images/user-dark.svg" alt="user" width="35" height="35" />
@@ -22,17 +23,20 @@
             </h3>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Email или Телефон">
+            <input id="oz_phone_input" type="text" class="form-control" placeholder="8 (___)___-__-__" name="phone" value="{{ old('phone') }}">
         </div>
         <div class="form-group mb-0">
-            <input id="password" type="password" class="form-control" placeholder="Пароль">
+            <input id="password" type="password" class="form-control" placeholder="Пароль" name="password" value="{{ old('password') }}">
             <a id="eye" href="#">
                 <img alt="eye" src="images/eye.svg">
             </a>
         </div>
         <p class="forget-wrap"><a class="forget" href="#">Забыли пароль?</a></p>
+        @if ($errors->any())
+            <p style="color:red;font-size:14px;">{{ $errors->all()[0] }}</p>
+        @endif
         <div class="d-flex justify-content-between">
-            <button class="btn btn-gray" disabled>Войти</button>
+            <button type="submit" class="btn btn-dart">Войти</button>
             <a href="{{ route('register.index') }}" class="btn btn-dart">Зарегистрироваться</a>
         </div>
         <div class="btns__soc">
@@ -51,6 +55,21 @@
         </div>
     </form>
     <script src="/js/script.js"></script>
+    <script src="{{ asset('js/jquery-3.4.0.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.inputmask.js') }}"></script>
+    <script>
+        $(function() {
+            $('#oz_phone_input').inputmask({
+                mask: "8 (999)999-99-99",
+                definitions: {
+                    'X': {
+                        validator: "9",
+                        placeholder: "9"
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
