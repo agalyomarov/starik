@@ -37,9 +37,14 @@
              <li>
                  <a href="/company.html">О нас</a>
              </li>
-             <li>
-                 <a href="/company.html">Выйти</a>
-             </li>
+             @auth
+                 <li>
+                     <form action="{{ route('login.logout') }}" method="post">
+                         @csrf
+                         <button style="border:none;background-color:rgba(0, 0, 0,0.0);color:white;padding:0;margin:0;" type="submit">Выйти</button>
+                     </form>
+                 </li>
+             @endauth
          </ol>
      </div>
  </div>

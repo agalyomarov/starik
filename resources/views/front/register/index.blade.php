@@ -86,7 +86,7 @@
                 <img src="images/facebook.svg" height="25" alt="facebook" class="mr-2">
                 Sign in with Facebook
             </button> --}}
-            <button class="btn btn-black">
+            <button type="button" onclick="window.location.href='/google'" class="btn btn-black">
                 <img src="images/google.svg" height="25" alt="google" class="mr-2">
                 Войти с помощю Google
             </button>
